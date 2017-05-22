@@ -12,9 +12,9 @@ Sample command to run, as root of course:
 ```shell
 # Pull and run the docker image with local storage at /srv/docker/quasselcore
 # and mounting to port 4242
-docker run --detach --hostname `hostname -f` --env 'COUNTRY=US' \
-  --env 'STATE=California' --env 'CITY=Los Angeles'--name quasselcore \
+docker run --detach --hostname `hostname -f` --env COUNTRY='US' \
+  --env STATE='California' --env CITY='Los Angeles'--name quasselcore \
   --volume /srv/docker/quasselcore:/var/lib/quassel \
-  --expose 0.0.0.0:4242:4242/tcp \
+  -p 0.0.0.0:4242:4242/tcp \
   --restart=unless-stopped rtzq0/docker-quasselcore
 ```
