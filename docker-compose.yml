@@ -20,6 +20,8 @@ quasselweb:
   - COUNTRY=US
   - STATE=California
   - CITY=Los Angeles
+  hostname: quasselweb
+  domainname: quasselweb.localdomain
   ports:
   - 64443:64443
   volumes:
