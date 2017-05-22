@@ -7,9 +7,16 @@ Alpine officially packaged quassel in a dockerfile!
 
 # Guide
 
-Sample command to run:
+Sample command to run, as root of course:
 
 ```
-docker run -it -d --name quasselcore -v /srv/docker/quassel:/var/lib/quassel \
-  -p 0.0.0.0:4242:4242/tcp rtzq0/docker-quasselcore
+# First create a TLS keypair for quassel to use
+mkdir -p /srv/docker/quasselcore
+openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /srv/docker/quasselcore/quasselCert.pem -out /srv/docker/quasselcore/quasselCert.pem -subj "/C=US/ST=California/L=Los Angeles/O=$(hostname -d)/OU=quasselcore/CN=$(hostname -f)"
+# Then pull and run the docker image with local storage at
+# /srv/docker/quasselcore and mounting to port 4242
+docker run -it -d --name quasselcore -v /srv/docker/quasselcore:/var/lib/quassel \
+  -p 0.0.0.0:4242:4242/tcp --restart=unless-stopped rtzq0/docker-quasselcore
 ```
+
+The location of the TLS certificate is something you may want to change.
