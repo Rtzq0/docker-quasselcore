@@ -1,6 +1,11 @@
 ---
 quasselcore:
   image: rtzq0/docker-quasselcore
+  environment:
+    - COUNTRY=US
+    - STATE=California
+    - CITY=Los Angeles
+  hostname: localhost
   ports:
     - 4242:4242
   volumes:
