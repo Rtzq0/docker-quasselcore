@@ -16,7 +16,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"
 	
-RUN apk add --update quassel-core \
+RUN apk add --update quassel-core qt-sqlite \
     && rm -rf /var/cache/apk/*
 
 VOLUME ["/var/lib/quassel"]
