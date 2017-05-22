@@ -5,7 +5,8 @@ quasselcore:
     - COUNTRY=US
     - STATE=California
     - CITY=Los Angeles
-  hostname: localhost
+  hostname: quasselcore
+  domainname: quasselcore.localdomain
   ports:
     - 4242:4242
   volumes:
