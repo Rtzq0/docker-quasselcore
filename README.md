@@ -13,8 +13,8 @@ Sample command to run, as root of course:
 # First create a TLS keypair for quassel to use
 mkdir -p /srv/docker/quasselcore
 openssl req -x509 -nodes -days 365 -newkey rsa:4096 \
-  -keyout /srv/docker/quasselcore/quasselCert.pem
-  -out /srv/docker/quasselcore/quasselCert.pem 
+  -keyout /srv/docker/quasselcore/quasselCert.pem \
+  -out /srv/docker/quasselcore/quasselCert.pem \
   -subj "/C=US/ST=California/L=Los Angeles/O=$(hostname -d)/OU=quasselcore/CN=$(hostname -f)"
 # Then pull and run the docker image with local storage at
 # /srv/docker/quasselcore and mounting to port 4242
