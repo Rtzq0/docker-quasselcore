@@ -5,6 +5,8 @@
 
 Alpine officially packaged quasselcore in a dockerfile!
 
+This image is daily rebuilt with travis to help ensure security!
+
 # Guide
 
 Sample command to run, as root of course:
