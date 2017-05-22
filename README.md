@@ -1,4 +1,5 @@
 # docker-quasselcore
+ [![Build Status](https://travis-ci.org/Rtzq0/docker-quasselcore.svg?branch=master)](https://travis-ci.org/Rtzq0/docker-quasselcore)
  [![](https://images.microbadger.com/badges/image/rtzq0/docker-quasselcore.svg)](https://microbadger.com/images/rtzq0/docker-quasselcore "Get your own image badge on microbadger.com")
  [![](https://images.microbadger.com/badges/version/rtzq0/docker-quasselcore.svg)](https://microbadger.com/images/rtzq0/docker-quasselcore "Get your own version badge on microbadger.com")
  [![](https://images.microbadger.com/badges/commit/rtzq0/docker-quasselcore.svg)](https://microbadger.com/images/rtzq0/docker-quasselcore "Get your own commit badge on microbadger.com") 
