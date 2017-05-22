@@ -9,7 +9,7 @@ Alpine officially packaged quasselcore in a dockerfile!
 
 Sample command to run, as root of course:
 
-```
+```shell
 # First create a TLS keypair for quassel to use
 mkdir -p /srv/docker/quasselcore
 openssl req -x509 -nodes -days 365 -newkey rsa:4096 \
