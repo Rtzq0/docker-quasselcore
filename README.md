@@ -21,3 +21,8 @@ docker run --detach --hostname `hostname -f` --env COUNTRY='US' \
   -p 0.0.0.0:4242:4242/tcp \
   --restart=unless-stopped rtzq0/docker-quasselcore
 ```
+Alternately, if you have docker-compose you can modify/use the included docker-compose.yml,
+which will also start the quassel web client
+```shell
+docker-compose up
+```
