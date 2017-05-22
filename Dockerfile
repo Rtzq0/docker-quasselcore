@@ -1,6 +1,15 @@
 FROM alpine
 MAINTAINER Jason Ritzke <jasonritzke@4loopz.com>
 
+# Used for TLS certificate, override at your whim
+ENV COUNTRY="US" \
+    STATE="California" \
+    CITY="Los Angeles" \
+    QUASSEL_HOME="/var/lib/quassel" \
+    QUASSEL_USER="quassel" \
+    QUASSEL_GROUP="quassel" \
+    QUASSEL_CERT="/var/lib/quassel/quasselCert.pem"
+
 # Stolen from https://microbadger.com/labels          
 # Build-time metadata as defined at http://label-schema.org
 ARG BUILD_DATE
@@ -15,10 +24,14 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vendor="Rtzq0" \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"
-	
-RUN apk add --update quassel-core qt-sqlite \
+
+RUN apk add --update quassel-core qt-sqlite openssl su-exec\
     && rm -rf /var/cache/apk/*
 
-VOLUME ["/var/lib/quassel"]
-ENTRYPOINT ["quasselcore", "--configdir=/var/lib/quassel/"]
 EXPOSE 4242
+
+VOLUME ["/var/lib/quassel"]
+COPY ./docker-entrypoint.sh /
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD su-exec ${QUASSEL_USER} /usr/bin/quasselcore --configdir=${QUASSEL_HOME}
